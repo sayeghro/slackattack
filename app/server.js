@@ -10,10 +10,10 @@ const controller = botkit.slackbot({
 
 // initialize yelp api
 const yelp = new Yelp({
-  consumer_key: 'fMFOpOyBrvB1rK4eAxKKjw',
-  consumer_secret: 'g-dRJtrUTGJC6R6aBe33MttAGAY',
-  token: 'DV8PyBe-KXur78MhRhv2X-TLmFtTsfzv',
-  token_secret: 'sGF9dQMUygzD-HLnr8WXYtuds-s',
+  consumer_key: process.env.YELP_CONSUMER_KEY,
+  consumer_secret: process.env.YELP_CONSUMER_SECRET,
+  token: process.env.YELP_TOKEN,
+  token_secret: process.env.YELP_TOKEN_SECRET,
 });
 
 // initialize slackbot
