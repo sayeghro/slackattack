@@ -43,6 +43,10 @@ controller.hears(['hello', 'hi', 'howdy'], ['direct_message', 'direct_mention', 
   });
 });
 
+controller.on('outgoing_webhook', (bot, message) => {
+  bot.replyPublic(message, 'yeah yeah');
+});
+
 controller.hears(['food', 'hungry', 'restaurant'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
   // start a conversation to handle this response.
   bot.startConversation(message, (err, convo) => {
