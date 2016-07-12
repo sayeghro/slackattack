@@ -60,8 +60,8 @@ controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 
           attachments: [
             {
               title: `${res.data[0].slug}`,
-              title_link: `${res.data[1].bitly_url}`,
-              image_url: `${res.data[1].url}`,
+              // title_link: `${res.data[1].bitly_url}`,
+              // image_url: `${res.data[1].url}`,
             },
           ],
         };
