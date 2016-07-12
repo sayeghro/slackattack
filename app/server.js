@@ -180,7 +180,7 @@ controller.hears('', ['direct_message', 'direct_mention', 'mention'], (bot, mess
     const msg = {
       link_names: 1,
       parse: 'full',
-      text: 'I can also talk to emma_bot if you mention my name and tell me to talk to emma_bot!',
+      text: 'I can also talk to emma_bot if you mention my name and tell me to talk to emma_bot, or ask me or a gif!',
       attachments: [],
     };
     bot.reply(message, msg);
