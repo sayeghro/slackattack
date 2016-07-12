@@ -47,9 +47,9 @@ controller.hears(['hello', 'hi', 'howdy'], ['direct_message', 'direct_mention', 
 
 controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
   bot.startConversation(message, (err, convo) => {
-    convo.ask('What would you like to see in your gif?', (res) => {
+    convo.ask('What would you like to see in your gif?', (r1) => {
       giphy.search({
-        q: 'pokemon',
+        q: `${r1}`,
         limit: 1,
         rating: 'g',
         fmt: 'json',
@@ -62,7 +62,7 @@ controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 
             {
               title: `${res.data[0].slug}`,
               title_link: `${res.data[0].bitly_url}`,
-              image_url: `${res.data[0].url}`,
+              image_url: `${res.data[0].images.original_still.url}`,
             },
           ],
         };
