@@ -116,19 +116,27 @@ controller.hears(['food', 'hungry', 'restaurant'], ['direct_message', 'direct_me
   }
 });
 
-controller.hears(['talk to @emma_bot', 'talk to emma_bot'], 'direct_mention', (bot, message) => {
-  bot.startConversation(message, (err, convo) => {
+controller.hears(['talk to @emma_bot', 'talk to emma_bot'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
+  bot.api.users.info({ user: message.user }, (err, res) => {
     const msg = {
       link_names: 1,
       parse: 'full',
       text: '@emma_bot, do you want to hear a joke?',
       attachments: [],
     };
-    convo.ask(msg, (res) => {
-      convo.say('A SQL query walks into a bar and sees two tables, so he asks "Can I join you?"... Haha?');
-      convo.next();
-    });
-    convo.next();
+    bot.reply(message, msg);
+  });
+});
+
+controller.hears(['It better be good, robbot'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
+  bot.api.users.info({ user: message.user }, (err, res) => {
+    const msg = {
+      link_names: 1,
+      parse: 'full',
+      text: 'It is. A SQL query walks into a bar and sees two tables, so he asks "Can I join you?"... Haha?',
+      attachments: [],
+    };
+    bot.reply(message, msg);
   });
 });
 
