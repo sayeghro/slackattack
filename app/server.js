@@ -121,6 +121,11 @@ controller.hears('', ['direct_message', 'direct_mention', 'mention'], (bot, mess
   bot.api.users.info({ user: message.user }, (err, res) => {
     bot.reply(message, 'Idk what you\'re trying to say, but I can give you recommendations about where to eat! ');
     bot.reply(message, 'Just ask for food or a restaurant and I\'d be happy to help!');
-    bot.reply(message, 'I can also talk to @emmabot if you mention my name and tell me to talk to @emmabot!');
+    const msg = {
+      link_names: 1,
+      parse: 'full',
+      text: 'I can also talk to @emmabot if you mention my name and tell me to talk to @emmabot!',
+    };
+    bot.reply(message, msg);
   });
 });
