@@ -121,13 +121,14 @@ controller.hears(['talk to @emma_bot', 'talk to emma_bot'], 'direct_mention', (b
     const msg = {
       link_names: 1,
       parse: 'full',
-      text: '@emma_bot: It\'s @robbot, how is it going?',
+      text: '@emma_bot, It\'s @robbot, how is it going?',
       attachments: [],
     };
     convo.ask(msg, (res) => {
       convo.say('I\'m doing great!.');
       convo.next();
     });
+    convo.next();
   });
 });
 
