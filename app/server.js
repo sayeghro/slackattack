@@ -116,6 +116,21 @@ controller.hears(['food', 'hungry', 'restaurant'], ['direct_message', 'direct_me
   }
 });
 
+controller.hears(['talk to @emma_bot', 'talk to emma_bot'], 'direct_mention', (bot, message) => {
+  bot.startConversation(message, (err, convo) => {
+    const msg = {
+      link_names: 1,
+      parse: 'full',
+      text: '@emma_bot: It\'s @robbot, how is it going?',
+      attachments: [],
+    };
+    convo.ask(msg, (res) => {
+      convo.say('I\'m doing great!.');
+      convo.next();
+    });
+  });
+});
+
 // if no other condition was met and someone is trying to talk to robbot:
 controller.hears('', ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
   bot.api.users.info({ user: message.user }, (err, res) => {
