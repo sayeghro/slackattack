@@ -133,7 +133,6 @@ controller.hears(['food', 'hungry', 'restaurant'], ['direct_message', 'direct_me
           };
           convo.say(attachment);
         } else {
-          console.log('made it to else');
           convo.say(`Hmmm, I couln\'t find and results for ${foodType.text} in ${loc.text}.`);
         }
           // convo.next();
