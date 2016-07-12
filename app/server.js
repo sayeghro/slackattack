@@ -1,6 +1,7 @@
 // imports
 import botkit from 'botkit';
 import Yelp from 'yelp';
+import giphy from 'giphy-api';
 // botkit controller
 const controller = botkit.slackbot({
   debug: false,
@@ -133,7 +134,7 @@ controller.hears(['It better be good.'], ['direct_message', 'direct_mention', 'm
     const msg = {
       link_names: 1,
       parse: 'full',
-      text: 'It is. A SQL query walks into a bar and sees two tables, so he asks "Can I join you?"... Haha?',
+      text: '@emma_bot, it is. A SQL query walks into a bar and sees two tables, so he asks "Can I join you?"... Haha?',
       attachments: [],
     };
     bot.reply(message, msg);
