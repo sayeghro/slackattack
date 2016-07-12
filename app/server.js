@@ -125,6 +125,7 @@ controller.hears('', ['direct_message', 'direct_mention', 'mention'], (bot, mess
       link_names: 1,
       parse: 'full',
       text: 'I can also talk to @emmabot if you mention my name and tell me to talk to @emmabot!',
+      attachments: [],
     };
     bot.reply({ channel: message.channel }, msg);
   });
