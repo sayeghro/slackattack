@@ -1,7 +1,9 @@
 // imports
 import botkit from 'botkit';
 import Yelp from 'yelp';
-import giphy from 'giphy-api';
+// import giphy from 'giphy-api';
+const giphy = require('giphy-api')();
+
 // botkit controller
 const controller = botkit.slackbot({
   debug: false,
