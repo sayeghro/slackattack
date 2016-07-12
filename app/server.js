@@ -52,8 +52,21 @@ controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 
         q: 'pokemon',
         limit: 1,
         rating: 'g',
+        fmt: 'json',
       }, (err, res) => {
-        convo.say(res);
+        console.log(res);
+        // const attachment = {
+        //   text: 'Here\'s your gif',
+        //   attachments: [
+        //     {
+        //       title: `${data.res[0].name}`,
+        //       title_link: `${data.businesses[0].url}`,
+        //       text: `${data.businesses[0].snippet_text}`,
+        //       image_url: `${data.businesses[0].image_url}`,
+        //     },
+        //   ],
+        // };
+        // convo.say(attachment);
       });
       convo.next();
     });
