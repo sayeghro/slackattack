@@ -128,7 +128,7 @@ controller.hears(['talk to @emma_bot', 'talk to emma_bot'], ['direct_message', '
   });
 });
 
-controller.hears(['It better be good, '], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
+controller.hears(['It better be good.'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
   bot.api.users.info({ user: message.user }, (err, res) => {
     const msg = {
       link_names: 1,
