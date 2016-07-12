@@ -55,6 +55,7 @@ controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 
         fmt: 'json',
       }, (err, res) => {
         console.log(res);
+        convo.say(res);
         const attachment = {
           text: 'Here\'s your gif',
           attachments: [
