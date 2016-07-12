@@ -55,18 +55,17 @@ controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 
         fmt: 'json',
       }, (err, res) => {
         console.log(res);
-        // const attachment = {
-        //   text: 'Here\'s your gif',
-        //   attachments: [
-        //     {
-        //       title: `${data.res[0].name}`,
-        //       title_link: `${data.businesses[0].url}`,
-        //       text: `${data.businesses[0].snippet_text}`,
-        //       image_url: `${data.businesses[0].image_url}`,
-        //     },
-        //   ],
-        // };
-        // convo.say(attachment);
+        const attachment = {
+          text: 'Here\'s your gif',
+          attachments: [
+            {
+              title: `${res.data[0].slug}`,
+              title_link: `${res.data[1].bitly_url}`,
+              image_url: `${res.data[1].url}`,
+            },
+          ],
+        };
+        convo.say(attachment);
       });
       convo.next();
     });
