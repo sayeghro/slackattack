@@ -121,11 +121,11 @@ controller.hears(['talk to @emma_bot', 'talk to emma_bot'], 'direct_mention', (b
     const msg = {
       link_names: 1,
       parse: 'full',
-      text: '@emma_bot, It\'s @robbot, how is it going?',
+      text: '@emma_bot, do you want to hear a joke?',
       attachments: [],
     };
     convo.ask(msg, (res) => {
-      convo.say('I\'m doing great!.');
+      convo.say('A SQL query walks into a bar and sees two tables, so he asks "Can I join you?"... Haha?');
       convo.next();
     });
     convo.next();
@@ -143,6 +143,6 @@ controller.hears('', ['direct_message', 'direct_mention', 'mention'], (bot, mess
       text: 'I can also talk to @emma_bot if you mention my name and tell me to talk to @emma_bot!',
       attachments: [],
     };
-    bot.reply({ channel: message.channel }, msg);
+    bot.reply(message, msg);
   });
 });
