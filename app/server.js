@@ -48,7 +48,7 @@ controller.hears(['hello', 'hi', 'howdy'], ['direct_message', 'direct_mention', 
 controller.hears(['gif', 'giphy', '.gif'], ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
   bot.startConversation(message, (err, convo) => {
     convo.ask('What would you like to see in your gif?', (r1) => {
-      convo.say(`${r1}`);
+      convo.say(`${r1.text}`);
       giphy.search({
         q: `${r1}`,
         limit: 1,
