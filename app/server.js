@@ -1,7 +1,6 @@
 // imports
 import botkit from 'botkit';
 import Yelp from 'yelp';
-
 // botkit controller
 const controller = botkit.slackbot({
   debug: false,
@@ -115,4 +114,13 @@ controller.hears(['food', 'hungry', 'restaurant'], ['direct_message', 'direct_me
       convo.next();
     });
   }
+});
+
+// if no other condition was met and someone is trying to talk to robbot:
+controller.hears('', ['direct_message', 'direct_mention', 'mention'], (bot, message) => {
+  bot.api.users.info({ user: message.user }, (err, res) => {
+    bot.reply(message, 'Idk what you\'re trying to say, but I can give you recommendations about where to eat! ');
+    bot.reply(message, 'Just ask for food or a restaurant and I\'d be happy to help!');
+    bot.reply(message, 'I can also talk to @emmabot if you mention my name and tell me to talk to @emmabot!');
+  });
 });
